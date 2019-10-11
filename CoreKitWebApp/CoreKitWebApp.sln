@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreKitWebApp", "CoreKitWebApp\CoreKitWebApp.csproj", "{22338222-3CFD-4AB3-A696-1715DFD8D4CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreKit.Domain", "CoreKit.Domain\CoreKit.Domain.csproj", "{0BE87FFA-38EA-4AF7-9CC8-F5854BAA2360}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreKit.Domain", "CoreKit.Domain\CoreKit.Domain.csproj", "{0BE87FFA-38EA-4AF7-9CC8-F5854BAA2360}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreKit.Data", "CoreKit.Data\CoreKit.Data.csproj", "{D2B4F78A-24C0-4431-87D5-09C32E8B13EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreKit.Data", "CoreKit.Data\CoreKit.Data.csproj", "{D2B4F78A-24C0-4431-87D5-09C32E8B13EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreKit.Tests", "CoreKit.Tests\CoreKit.Tests.csproj", "{CE52B086-CBC4-49DC-896A-F5ACD83E797F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreKit.Tests", "CoreKit.Tests\CoreKit.Tests.csproj", "{CE52B086-CBC4-49DC-896A-F5ACD83E797F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreKit.Web", "CoreKit.Web\CoreKit.Web.csproj", "{FE5AEB68-FBB2-4998-8E4D-910BBE9F0843}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreKit.WebApi", "CoreKit.WebApi\CoreKit.WebApi.csproj", "{C1E53D53-E6DA-4C41-942A-5A66F7940C0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{22338222-3CFD-4AB3-A696-1715DFD8D4CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{22338222-3CFD-4AB3-A696-1715DFD8D4CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{22338222-3CFD-4AB3-A696-1715DFD8D4CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{22338222-3CFD-4AB3-A696-1715DFD8D4CA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0BE87FFA-38EA-4AF7-9CC8-F5854BAA2360}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0BE87FFA-38EA-4AF7-9CC8-F5854BAA2360}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BE87FFA-38EA-4AF7-9CC8-F5854BAA2360}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +31,14 @@ Global
 		{CE52B086-CBC4-49DC-896A-F5ACD83E797F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE52B086-CBC4-49DC-896A-F5ACD83E797F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE52B086-CBC4-49DC-896A-F5ACD83E797F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE5AEB68-FBB2-4998-8E4D-910BBE9F0843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE5AEB68-FBB2-4998-8E4D-910BBE9F0843}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE5AEB68-FBB2-4998-8E4D-910BBE9F0843}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE5AEB68-FBB2-4998-8E4D-910BBE9F0843}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1E53D53-E6DA-4C41-942A-5A66F7940C0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1E53D53-E6DA-4C41-942A-5A66F7940C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1E53D53-E6DA-4C41-942A-5A66F7940C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1E53D53-E6DA-4C41-942A-5A66F7940C0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
