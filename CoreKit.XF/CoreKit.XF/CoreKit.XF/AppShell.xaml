@@ -4,6 +4,7 @@
        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        mc:Ignorable="d"
+       xmlns:controls="clr-namespace:CoreKit.XF.Controls"
        xmlns:local="clr-namespace:CoreKit.XF.Views"
        Title="CoreKit.XF"
        x:Class="CoreKit.XF.AppShell">
@@ -15,6 +16,14 @@
         <ResourceDictionary>
             <Color x:Key="NavigationPrimary">#2196F3</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="#455A64" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+            </Style>
+
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
                 <Setter Property="Shell.TitleColor" Value="White" />
@@ -25,19 +34,39 @@
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="White"/>
             </Style>
-            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+
+            <Style x:Key="CarShell" TargetType="Element" BasedOn="{StaticResource BaseStyle}">
+                <Setter Property="Shell.BackgroundColor" Value="#546DFE" />
+            </Style>
         </ResourceDictionary>
     </Shell.Resources>
 
+    <Shell.FlyoutHeader>
+        <controls:FlyoutHeader></controls:FlyoutHeader>
+    </Shell.FlyoutHeader>
+    
     <!-- Your Pages -->
-    <TabBar>
+   
+    <ShellContent Route="car"
+                    Style="{StaticResource CarShell}"
+                    Title="Car"
+                    Icon="car.png"
+                    ContentTemplate="{DataTemplate local:CarPage}" />
+
+    <ShellContent Route="Order"
+                    Style="{StaticResource CarShell}"
+                    Title="Order"
+                    Icon="car.png"
+                    ContentTemplate="{DataTemplate local:OrderPage}" />
+    
+    <!--<TabBar>
         <Tab Title="Browse" Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
         </Tab>
         <Tab Title="About" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>
-    </TabBar>
+    </TabBar>-->
 
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.
