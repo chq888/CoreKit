@@ -51,5 +51,16 @@ namespace CoreKit.XF.Views
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
         }
+
+        protected override void OnDisappearing()
+        {
+            var viewModel = BindingContext as ItemsViewModel;
+            if (viewModel != null)
+            {
+                //viewModel.Unload();
+            }
+
+            base.OnDisappearing();
+        }
     }
 }

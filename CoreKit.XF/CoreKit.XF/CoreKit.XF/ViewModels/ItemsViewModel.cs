@@ -7,11 +7,15 @@ using Xamarin.Forms;
 
 using CoreKit.XF.Models;
 using CoreKit.XF.Views;
+using CoreKit.XF.Services;
 
 namespace CoreKit.XF.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
+
+        public IDataStore<Item> DataStore => new ItemDataStore();
+
         public ObservableCollection<Item> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
 

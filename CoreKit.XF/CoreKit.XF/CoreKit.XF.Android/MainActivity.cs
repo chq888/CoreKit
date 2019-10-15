@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using CoreKit.XF.Models;
 
 namespace CoreKit.XF.Droid
 {
@@ -22,6 +23,9 @@ namespace CoreKit.XF.Droid
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            DbContextFactory.Instance.SetDatabasePath(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal));
+
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

@@ -1,16 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
-       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-       mc:Ignorable="d"
-       xmlns:controls="clr-namespace:CoreKit.XF.Controls"
-       xmlns:local="clr-namespace:CoreKit.XF.Views"
-       Title="CoreKit.XF"
-       x:Class="CoreKit.XF.AppShell">
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CoreKit.XF.AppShell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:CoreKit.XF.Controls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:CoreKit.XF.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="CoreKit.XF"
+    mc:Ignorable="d">
 
-    <!-- 
-        Styles and Resources 
+    <!--
+        Styles and Resources
     -->
     <Shell.Resources>
         <ResourceDictionary>
@@ -23,42 +24,53 @@
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
             </Style>
 
-            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}">
+            <Style BasedOn="{StaticResource BaseStyle}" TargetType="TabBar">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="White" />
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarTitleColor" Value="White" />
             </Style>
 
-            <Style x:Key="CarShell" TargetType="Element" BasedOn="{StaticResource BaseStyle}">
+            <Style
+                x:Key="CarShell"
+                BasedOn="{StaticResource BaseStyle}"
+                TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="#546DFE" />
             </Style>
         </ResourceDictionary>
     </Shell.Resources>
 
     <Shell.FlyoutHeader>
-        <controls:FlyoutHeader></controls:FlyoutHeader>
+        <controls:FlyoutHeader />
     </Shell.FlyoutHeader>
-    
-    <!-- Your Pages -->
-   
-    <ShellContent Route="car"
-                    Style="{StaticResource CarShell}"
-                    Title="Car"
-                    Icon="car.png"
-                    ContentTemplate="{DataTemplate local:CarPage}" />
 
-    <ShellContent Route="Order"
-                    Style="{StaticResource CarShell}"
-                    Title="Order"
-                    Icon="car.png"
-                    ContentTemplate="{DataTemplate local:OrderPage}" />
-    
+    <!--  Your Pages  -->
+
+    <ShellContent
+        Title="Car"
+        ContentTemplate="{DataTemplate local:CarPage}"
+        Icon="car.png"
+        Route="car"
+        Style="{StaticResource CarShell}" />
+
+    <ShellContent
+        Title="Order"
+        ContentTemplate="{DataTemplate local:OrderPage}"
+        Icon="car.png"
+        Route="Order"
+        Style="{StaticResource CarShell}" />
+
+    <ShellContent
+        Title="Items"
+        ContentTemplate="{DataTemplate local:ItemsPage}"
+        Icon="car.png"
+        Route="Items" />
+
     <!--<TabBar>
         <Tab Title="Browse" Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
@@ -68,7 +80,7 @@
         </Tab>
     </TabBar>-->
 
-    <!-- Optional Templates 
+    <!-- Optional Templates
     // These may be provided inline as below or as separate classes.
 
     // This header appears at the top of the Flyout.

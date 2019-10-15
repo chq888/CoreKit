@@ -4,6 +4,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using CoreKit.XF.Services;
 using CoreKit.XF.Views;
+using CoreKit.XF.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoreKit.XF
 {
@@ -20,10 +22,13 @@ namespace CoreKit.XF
         {
             InitializeComponent();
 
+            DbContextFactory.Instance.InitializeDatabase();
+
             if (UseMockDataStore)
                 DependencyService.Register<MockDataStore>();
             else
                 DependencyService.Register<AzureDataStore>();
+
             MainPage = new AppShell();
         }
 
@@ -41,5 +46,6 @@ namespace CoreKit.XF
         {
             // Handle when your app resumes
         }
+
     }
 }

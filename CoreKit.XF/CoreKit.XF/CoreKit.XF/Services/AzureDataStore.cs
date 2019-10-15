@@ -34,7 +34,7 @@ namespace CoreKit.XF.Services
             return items;
         }
 
-        public async Task<Item> GetItemAsync(string id)
+        public async Task<Item> GetItemAsync(int id)
         {
             if (id != null && IsConnected)
             {
@@ -59,7 +59,7 @@ namespace CoreKit.XF.Services
 
         public async Task<bool> UpdateItemAsync(Item item)
         {
-            if (item == null || item.Id == null || !IsConnected)
+            if (item == null || !IsConnected)
                 return false;
 
             var serializedItem = JsonConvert.SerializeObject(item);
@@ -71,9 +71,9 @@ namespace CoreKit.XF.Services
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> DeleteItemAsync(string id)
+        public async Task<bool> DeleteItemAsync(int id)
         {
-            if (string.IsNullOrEmpty(id) && !IsConnected)
+            if (id > 0 && !IsConnected)
                 return false;
 
             var response = await client.DeleteAsync($"api/item/{id}");
