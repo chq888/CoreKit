@@ -77,8 +77,10 @@ namespace CoreKit.XF.Models
                 SQLitePCL.Batteries_V2.Init();
                 using (var db = DbContextFactory.Instance.CreateItemDbContext())
                 {
-                    db.Database.EnsureCreated();
                     //db.Database.Migrate();
+                    //db.Database.OpenConnection();
+                    db.Database.EnsureCreated();
+                    //db.Database.CloseConnection();
                 }
             }
             catch (Exception ex)

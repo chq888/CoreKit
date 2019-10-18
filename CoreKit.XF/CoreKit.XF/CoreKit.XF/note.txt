@@ -1,0 +1,22 @@
+﻿Android Local HTTP Debugging
+
+Why 10.0.2.2? Because that is the address that the Android emulator sees its own local traffic come through as.
+We also have to change the URL of the function from http://localhost:7071 to http://10.0.2.2:7071 … because that’s what the Android emulator is using for its local loopback.
+     if (DeviceInfo.DeviceType == DeviceType.Virtual && DeviceInfo.Platform == DevicePlatform.Android)
+    FunctionUrl = "http://10.0.2.2:7071/api";
+
+
+
+
+
+
+iOS HTTP Local HTTP Debugging
+
+Not to worry! There is a relatively easy workaround for this that doesn’t involve creating or trusting any certificates:
+
+Open up the iOS’s Info.plist file in a text editor.
+Add the following within the top-level element:
+
+NSAppTransportSecurity
+
+NSAllowsLocalNetworking

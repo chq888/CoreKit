@@ -61,6 +61,8 @@ namespace CoreKit.XF.Services
         {
             using (var context = new ItemDbContext())
             {
+                //.Include(x => x.Address).ToList();
+
                 return await context.FindAsync<Item>(id);
             }
         }

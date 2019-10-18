@@ -7,12 +7,38 @@ using Xamarin.Forms;
 
 using CoreKit.XF.Models;
 using CoreKit.XF.Services;
+using System.Threading.Tasks;
+using CoreKit.XF.Helpers;
 
 namespace CoreKit.XF.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
         //public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+
+        //readonly WeakEventManager _propertyChangedEventManager = new WeakEventManager();
+
+        //event PropertyChangedEventHandler INotifyPropertyChanged.PropertyChanged
+        //{
+        //    add => _propertyChangedEventManager.AddEventHandler(value);
+        //    remove => _propertyChangedEventManager.RemoveEventHandler(value);
+        //}
+
+        //protected void SetProperty<T>(ref T backingStore, in T value, in System.Action? onChanged = null, [CallerMemberName] in string propertyname = "")
+        //{
+        //    if (EqualityComparer<T>.Default.Equals(backingStore, value))
+        //        return;
+
+        //    backingStore = value;
+
+        //    onChanged?.Invoke();
+
+        //    OnPropertyChanged(propertyname);
+        //}
+
+        //void OnPropertyChanged([CallerMemberName] in string propertyName = "") =>
+        //    _propertyChangedEventManager.HandleEvent(this, new PropertyChangedEventArgs(propertyName), nameof(INotifyPropertyChanged.PropertyChanged));
+
 
         bool isBusy = false;
         public bool IsBusy
@@ -48,9 +74,30 @@ namespace CoreKit.XF.ViewModels
             var changed = PropertyChanged;
             if (changed == null)
                 return;
-
+            
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+
+        public virtual Task InitializeAsync() => Task.CompletedTask;
+
+        public virtual Task UninitializeAsync() => Task.CompletedTask;
+
+        protected async Task<bool> TryExecuteWithLoadingIndicatorsAsync(
+          Task operation,
+          Func<Exception, Task<bool>> onError = null) =>
+          await TaskHelper.Create()
+              .WhenStarting(() => IsBusy = true)
+              .WhenFinished(() => IsBusy = false)
+              .TryWithErrorHandlingAsync(operation, onError);
+
+        protected async Task<T> TryExecuteWithLoadingIndicatorsAsync<T>(
+            Task<T> operation,
+            Func<Exception, Task<bool>> onError = null) =>
+            await TaskHelper.Create()
+                .WhenStarting(() => IsBusy = true)
+                .WhenFinished(() => IsBusy = false)
+                .TryWithErrorHandlingAsync(operation, onError);
+
     }
 }

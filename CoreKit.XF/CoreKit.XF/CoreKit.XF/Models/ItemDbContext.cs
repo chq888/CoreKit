@@ -44,6 +44,23 @@ namespace CoreKit.XF.Models
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            //SeedInitialData(modelBuilder);
+        }
+
+        private void SeedInitialData(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Item>().HasData(
+                    new Item()
+                    {
+                        Text = "test 1",
+                        Description = "test desc"
+                    });
+        }
+
     }
 
 }

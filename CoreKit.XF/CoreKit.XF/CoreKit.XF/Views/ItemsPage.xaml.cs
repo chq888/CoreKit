@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using CoreKit.XF.Models;
 using CoreKit.XF.Views;
 using CoreKit.XF.ViewModels;
+using CoreKit.XF.Infrastructure;
 
 namespace CoreKit.XF.Views
 {
@@ -24,7 +25,7 @@ namespace CoreKit.XF.Views
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new ItemsViewModel();
+            BindingContext = viewModel = ViewModelLocator.ItemsVM;
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
