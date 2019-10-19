@@ -80,5 +80,10 @@ namespace CoreKit.XF.Services
 
             return response.IsSuccessStatusCode;
         }
+
+        public Task<IList<Category>> GetCategoriesAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

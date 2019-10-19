@@ -54,6 +54,16 @@ namespace CoreKit.XF.ViewModels
             set { SetProperty(ref title, value); }
         }
 
+        protected bool TrySetProperty<T>(ref T backingStore, T value,
+            [CallerMemberName]string propertyName = "",
+            Action onChanged = null)
+        {
+            backingStore = value;
+            onChanged?.Invoke();
+            OnPropertyChanged(propertyName);
+            return true;
+        }
+
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName]string propertyName = "",
             Action onChanged = null)
@@ -61,10 +71,7 @@ namespace CoreKit.XF.ViewModels
             if (EqualityComparer<T>.Default.Equals(backingStore, value))
                 return false;
 
-            backingStore = value;
-            onChanged?.Invoke();
-            OnPropertyChanged(propertyName);
-            return true;
+            return TrySetProperty<T>(ref backingStore, value, propertyName, onChanged);
         }
 
         #region INotifyPropertyChanged

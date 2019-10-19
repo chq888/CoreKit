@@ -118,11 +118,6 @@ namespace CoreKit.XF.Infrastructure
 
     public sealed class AsyncCommand<T> : Command<T>
     {
-        private readonly Func<T, Task> _asyncExecute;
-        private readonly Predicate<T> _canExecute;
-        private readonly bool _enableConcurrency;
-        private volatile bool _isRunning;
-
 
         public AsyncCommand(Func<T, Task> execute)
             : base(param => execute(param).ConfigureAwait(false))

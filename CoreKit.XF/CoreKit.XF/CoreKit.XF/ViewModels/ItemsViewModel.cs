@@ -14,15 +14,23 @@ namespace CoreKit.XF.ViewModels
     public class ItemsViewModel : BaseViewModel
     {
 
-        public IDataStore<Item> DataStore => new ItemDataStore();
+        public IDataStore<Item> DataStore => new MockDataStore();
+        //public IDataStore<Item> DataStore => new ItemDataStore();
 
         public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<Category> Categories { get; set; }
+
+        public Item SelectedItem { get; set; }
+        public Category SelectedCategory { get; set; }
+
         public Command LoadItemsCommand { get; set; }
 
         public ItemsViewModel()
         {
             Title = "Browse";
             Items = new ObservableCollection<Item>();
+            Categories = new ObservableCollection<Category>();
+
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
@@ -47,6 +55,13 @@ namespace CoreKit.XF.ViewModels
                 foreach (var item in items)
                 {
                     Items.Add(item);
+                }
+
+                Categories.Clear();
+                var categories = await DataStore.GetCategoriesAsync();
+                foreach (var item in categories)
+                {
+                    Categories.Add(item);
                 }
             }
             catch (Exception ex)

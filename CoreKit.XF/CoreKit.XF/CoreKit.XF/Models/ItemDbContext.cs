@@ -56,7 +56,7 @@ namespace CoreKit.XF.Models
             modelBuilder.Entity<Item>().HasData(
                     new Item()
                     {
-                        Text = "test 1",
+                        Name = "test 1",
                         Description = "test desc"
                     });
         }

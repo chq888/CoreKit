@@ -9,16 +9,58 @@
     mc:Ignorable="d">
 
     <StackLayout Padding="15" Spacing="20">
-        <Label FontSize="Medium" Text="Text:" />
-        <Label
-            d:Text="Item name"
-            FontSize="Small"
-            Text="{Binding Item.Text}" />
-        <Label FontSize="Medium" Text="Description:" />
-        <Label
-            d:Text="Item description"
-            FontSize="Small"
-            Text="{Binding Item.Description}" />
+        <StackLayout
+            x:Name="readOnlyStackLayout"
+            Padding="15"
+            Spacing="20">
+            <Label FontSize="Medium" Text="Name:" />
+            <Label
+                d:Text="Item name"
+                FontSize="Small"
+                Text="{Binding Item.Name}" />
+            <Label FontSize="Medium" Text="Description:" />
+            <Label
+                d:Text="Item description"
+                FontSize="Small"
+                Text="{Binding Item.Description}" />
+        </StackLayout>
+        <StackLayout
+            x:Name="editStackLayout"
+            Padding="15"
+            Spacing="20">
+            <Label FontSize="Medium" Text="Category:" />
+            <!--<Picker
+                x:Name="CategoryPicker"
+                Title="Category"
+                FontSize="Small"
+                SelectedItem="1">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>1</x:String>
+                        <x:String>2</x:String>
+                        <x:String>3</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>-->
+            <Picker
+                x:Name="CategoryPicker"
+                FontSize="Small"
+                ItemDisplayBinding="{Binding Name}"
+                ItemsSource="{Binding Categories}"
+                SelectedItem="{Binding CurrentItem.Category}" />
+            <Entry
+                x:Name="NameEntry"
+                FontSize="Small"
+                Placeholder="Name"
+                Text="{Binding CurrentItem.Name}" />
+
+            <Editor
+                x:Name="DescriptionEntry"
+                AutoSize="TextChanges"
+                FontSize="Small"
+                Placeholder="Description"
+                Text="{Binding CurrentItem.Description}" />
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>

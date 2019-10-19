@@ -27,7 +27,7 @@ namespace CoreKit.XF.Services
                     else
                     {
                         currentItem.Id = item.Id;
-                        currentItem.Text = item.Text;
+                        currentItem.Name = item.Name;
                         currentItem.Description = item.Description;
 
                         context.Items.Update(currentItem);
@@ -55,6 +55,11 @@ namespace CoreKit.XF.Services
                 count = await context.SaveChangesAsync();
             }
             return await Task.FromResult(count == 1);
+        }
+
+        public Task<IList<Category>> GetCategoriesAsync()
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<Item> GetItemAsync(int id)

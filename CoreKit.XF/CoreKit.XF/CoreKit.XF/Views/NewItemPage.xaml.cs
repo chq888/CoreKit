@@ -21,8 +21,9 @@ namespace CoreKit.XF.Views
 
             Item = new Item
             {
-                Text = "Item name",
-                Description = "This is an item description."
+                Name = "Item name",
+                Description = "This is an item description.",
+                CategoryId = 1
             };
 
             BindingContext = this;

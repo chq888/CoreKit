@@ -43,7 +43,13 @@
                                 FontSize="16"
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemTextStyle}"
-                                Text="{Binding Text}" />
+                                Text="{Binding CategoryId}" />
+                            <Label
+                                d:Text="{Binding .}"
+                                FontSize="16"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemTextStyle}"
+                                Text="{Binding Name}" />
                             <Label
                                 d:Text="Item description"
                                 FontSize="13"

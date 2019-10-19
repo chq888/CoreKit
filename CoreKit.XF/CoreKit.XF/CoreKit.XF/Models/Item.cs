@@ -13,9 +13,15 @@ namespace CoreKit.XF.Models
 
         [Required]
         [Column("Text")]
-        public string Text { get; set; }
+        public string Name { get; set; }
 
         [Column("Description")]
         public string Description { get; set; }
+
+        [Column("CategoryId")]
+        public int CategoryId { get; set; }
+
+        public Category Category { get; set; }
+
     }
 }

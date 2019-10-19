@@ -22,18 +22,28 @@ namespace CoreKit.XF.Views
             BindingContext = this.viewModel = viewModel;
         }
 
-        public ItemDetailPage()
+        //public ItemDetailPage()
+        //{
+        //    InitializeComponent();
+
+        //    var item = new Item
+        //    {
+        //        Name = "Item 1",
+        //        Description = "This is an item description.",
+        //        CategoryId = 1
+        //    };
+
+        //    viewModel = new ItemDetailViewModel(item);
+        //    BindingContext = viewModel;
+        //}
+
+        protected override void OnAppearing()
         {
-            InitializeComponent();
+            base.OnAppearing();
 
-            var item = new Item
-            {
-                Text = "Item 1",
-                Description = "This is an item description."
-            };
-
-            viewModel = new ItemDetailViewModel(item);
-            BindingContext = viewModel;
+            if (viewModel.Categories.Count == 0)
+                viewModel.LoadDataCommand.Execute(null);
         }
+
     }
 }

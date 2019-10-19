@@ -1,4 +1,4 @@
-namespace CoreKit.Domain
+namespace CoreKit.XF.Models
 {
     // Order
     public class Order

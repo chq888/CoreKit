@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoreKit.XF.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,5 +12,7 @@ namespace CoreKit.XF.Services
         Task<bool> DeleteItemAsync(int id);
         Task<T> GetItemAsync(int id);
         Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
+
+        Task<IList<Category>> GetCategoriesAsync();
     }
 }

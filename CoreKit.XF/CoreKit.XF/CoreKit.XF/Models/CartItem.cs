@@ -1,5 +1,5 @@
 
-namespace CoreKit.Domain
+namespace CoreKit.XF.Models
 {
     // CartItem
     public class CartItem
