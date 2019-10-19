@@ -25,11 +25,22 @@ namespace CoreKit.XF.ViewModels
 
         public ObservableCollection<Category> Categories { get; set; }
 
-        private Category _SelectedCategory;
+        //private Category _SelectedCategory;
+        //public Category SelectedCategory
+        //{
+        //    get { return _SelectedCategory; }
+        //    set { SetProperty(ref _SelectedCategory, value); }
+        //}
+
+
         public Category SelectedCategory
         {
-            get { return _SelectedCategory; }
-            set { SetProperty(ref _SelectedCategory, value); }
+            get { return CurrentItem.Category; }
+            set
+            {
+                CurrentItem.Category = value;
+                OnPropertyChanged();
+            }
         }
 
         public Command LoadDataCommand { get; set; }
@@ -60,10 +71,11 @@ namespace CoreKit.XF.ViewModels
                     Categories.Add(item);
                 }
 
-                CurrentItem.Category = Categories.Where(a => a.Id == CurrentItem.CategoryId).FirstOrDefault();
+                //CurrentItem.Category = Categories.Where(a => a.Id == CurrentItem.CategoryId).FirstOrDefault();
+                SelectedCategory = Categories.Where(a => a.Id == CurrentItem.CategoryId).FirstOrDefault();
+
                 //this.OnPropertyChanged("CurrentItem");
-                TrySetProperty(ref _CurrentItem, CurrentItem, nameof(CurrentItem));
-                //SelectedCategory = Categories[0];
+                //TrySetProperty(ref _CurrentItem, CurrentItem, nameof(CurrentItem));
             }
             catch (Exception ex)
             {

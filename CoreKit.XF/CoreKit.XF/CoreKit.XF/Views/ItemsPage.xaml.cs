@@ -49,6 +49,11 @@ namespace CoreKit.XF.Views
         {
             base.OnAppearing();
 
+            InitializeData();
+        }
+
+        public void InitializeData()
+        {
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
         }

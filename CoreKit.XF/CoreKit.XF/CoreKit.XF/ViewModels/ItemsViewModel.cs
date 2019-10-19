@@ -31,6 +31,7 @@ namespace CoreKit.XF.ViewModels
             Items = new ObservableCollection<Item>();
             Categories = new ObservableCollection<Category>();
 
+            //InitializeData();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
@@ -39,6 +40,11 @@ namespace CoreKit.XF.ViewModels
                 Items.Add(newItem);
                 await DataStore.AddItemAsync(newItem);
             });
+        }
+
+        public void InitializeData()
+        {
+            ExecuteLoadItemsCommand();
         }
 
         async Task ExecuteLoadItemsCommand()

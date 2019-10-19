@@ -47,7 +47,7 @@
                 FontSize="Small"
                 ItemDisplayBinding="{Binding Name}"
                 ItemsSource="{Binding Categories}"
-                SelectedItem="{Binding CurrentItem.Category}" />
+                SelectedItem="{Binding SelectedCategory}" />
             <Entry
                 x:Name="NameEntry"
                 FontSize="Small"
