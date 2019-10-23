@@ -22,20 +22,20 @@ namespace CoreKit.XF.Views
             BindingContext = this.viewModel = viewModel;
         }
 
-        //public ItemDetailPage()
-        //{
-        //    InitializeComponent();
+        public ItemDetailPage()
+        {
+            InitializeComponent();
 
-        //    var item = new Item
-        //    {
-        //        Name = "Item 1",
-        //        Description = "This is an item description.",
-        //        CategoryId = 1
-        //    };
+            var item = new Item
+            {
+                Name = "Item 1",
+                Description = "This is an item description.",
+                CategoryId = 1
+            };
 
-        //    viewModel = new ItemDetailViewModel(item);
-        //    BindingContext = viewModel;
-        //}
+            viewModel = new ItemDetailViewModel(item);
+            BindingContext = viewModel;
+        }
 
         protected override void OnAppearing()
         {

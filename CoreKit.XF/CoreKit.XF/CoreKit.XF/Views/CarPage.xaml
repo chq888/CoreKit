@@ -1,15 +1,101 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="CoreKit.XF.Views.CarPage">
+<ContentPage
+    x:Class="CoreKit.XF.Views.CarPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="LabelColor">#336699</Color>
+            <Style x:Key="TextColorLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Red" />
+            </Style>
+            <Style x:Key="Custom1LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Brown" />
+            </Style>
+            <Style x:Key="Custom2LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Pink" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Car Page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label
+                FontSize="Medium"
+                HorizontalOptions="CenterAndExpand"
+                Text="Car Page!"
+                VerticalOptions="Center" />
+            <Label
+                FontSize="Medium"
+                HorizontalOptions="CenterAndExpand"
+                Style="{StaticResource SmallLabelStyle}"
+                Text="SmallLabelStyle!"
+                VerticalOptions="Center" />
+            <Label
+                FontSize="Medium"
+                HorizontalOptions="CenterAndExpand"
+                Style="{DynamicResource CustomLabelStyle}"
+                Text="DynamicResource CustomLabelStyle!"
+                VerticalOptions="Center" />
+            <Grid
+                BackgroundColor="Aqua"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Grid.Resources>
+                    <ResourceDictionary>
+                        <Color x:Key="LabelColor">Blue</Color>
+                    </ResourceDictionary>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    FontSize="Medium"
+                    HorizontalOptions="Center"
+                    Text="Page 1!"
+                    TextColor="Green"
+                    VerticalOptions="Center" />
+                <!--<BoxView Color="Yellow" Grid.Row="1" Grid.Column="0"></BoxView>-->
+                <BoxView
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Color="Yellow" />
+                <BoxView
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Color="Yellow" />
+                <BoxView
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Color="Yellow" />
+                <Label
+                    Grid.Row="2"
+                    Grid.RowSpan="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    BackgroundColor="{StaticResource LabelBackgroundColor}"
+                    LineBreakMode="WordWrap"
+                    LineHeight="3"
+                    MaxLines="3"
+                    Style="{StaticResource TextColorLabelStyle}"
+                    Text="Page 2!"
+                    TextColor="{StaticResource LabelColor}"
+                    TextDecorations="Underline,Strikethrough" />
+            </Grid>
         </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>

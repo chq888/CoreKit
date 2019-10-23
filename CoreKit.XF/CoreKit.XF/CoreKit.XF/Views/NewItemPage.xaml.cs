@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using CoreKit.XF.Models;
+using CoreKit.XF.ViewModels;
 
 namespace CoreKit.XF.Views
 {
@@ -13,6 +14,9 @@ namespace CoreKit.XF.Views
     [DesignTimeVisible(false)]
     public partial class NewItemPage : ContentPage
     {
+
+        ItemDetailViewModel viewModel;
+
         public Item Item { get; set; }
 
         public NewItemPage()
@@ -26,12 +30,13 @@ namespace CoreKit.XF.Views
                 CategoryId = 1
             };
 
-            BindingContext = this;
+            //BindingContext = this;
+            BindingContext = viewModel = new ItemDetailViewModel();
         }
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", Item);
+            MessagingCenter.Send(this, "AddItem", viewModel.CurrentItem);
             await Navigation.PopModalAsync();
         }
 

@@ -1,15 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="CoreKit.XF.Views.OrderPage">
+<ContentPage
+    x:Class="CoreKit.XF.Views.OrderPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:renderers="clr-namespace:CoreKit.XF.Renderers"
+    mc:Ignorable="d">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Order Page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label
+                Grid.Row="2"
+                Grid.RowSpan="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                LineBreakMode="WordWrap"
+                LineHeight="3"
+                MaxLines="3"
+                Text="Page 2!"
+                TextDecorations="Underline,Strikethrough">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            FontAttributes="Bold"
+                            Text="nothing"
+                            TextColor="Red" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Entry
+                MaxLength="15"
+                Placeholder="Enter text here"
+                ReturnType="Send">
+                <Entry.Keyboard>
+                    <Keyboard x:FactoryMethod="Create">
+                        <x:Arguments>
+                            <KeyboardFlags>Suggestions,CapitalizeCharacter</KeyboardFlags>
+                        </x:Arguments>
+                    </Keyboard>
+                </Entry.Keyboard>
+            </Entry>
+
+            <Editor
+                FontSize="Small"
+                HeightRequest="200"
+                IsSpellCheckEnabled="True"
+                TextColor="Blue">
+                <Editor.Keyboard>
+                    <Keyboard x:FactoryMethod="Create">
+                        <x:Arguments>
+                            <KeyboardFlags>Suggestions,SpellChecker</KeyboardFlags>
+                        </x:Arguments>
+                    </Keyboard>
+                </Editor.Keyboard>
+                <Editor.BackgroundColor>
+                    <OnPlatform x:TypeArguments="Color">
+                        <On Platform="iOS" Value="#336699" />
+                        <On Platform="Android" Value="#338899" />
+                    </OnPlatform>
+                </Editor.BackgroundColor>
+
+            </Editor>
+
+            <renderers:CustomEntry Placeholder="Enter CustomEntry here" />
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

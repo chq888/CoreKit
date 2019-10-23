@@ -7,21 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace CoreKit.XF.Views
+namespace CoreKit.XF.Resources
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CarPage : ContentPage
+    public partial class ColorDictionary : ResourceDictionary
     {
-        public CarPage()
+        public ColorDictionary()
         {
             InitializeComponent();
-        }
-
-        protected override void OnAppearing()
-        {
-            Resources["CustomLabelStyle"] = Resources["Custom1LabelStyle"];
-
-            base.OnAppearing();
         }
     }
 }

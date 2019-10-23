@@ -16,7 +16,7 @@
     <ContentPage.Content>
         <StackLayout Padding="15" Spacing="20">
             <Label FontSize="Medium" Text="Category" />
-            <Picker FontSize="Small" SelectedItem="{Binding Item.CategoryId}">
+            <Picker FontSize="Small" SelectedItem="{Binding CurrentItem.CategoryId}">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:Int32}">
                         <x:Int32>1</x:Int32>
@@ -39,14 +39,14 @@
             <Entry
                 d:Text="Item name"
                 FontSize="Small"
-                Text="{Binding Item.Name}" />
+                Text="{Binding CurrentItem.Name}" />
             <Label FontSize="Medium" Text="Description" />
             <Editor
                 Margin="0"
                 d:Text="Item description"
                 AutoSize="TextChanges"
                 FontSize="Small"
-                Text="{Binding Item.Description}" />
+                Text="{Binding CurrentItem.Description}" />
         </StackLayout>
     </ContentPage.Content>
 
