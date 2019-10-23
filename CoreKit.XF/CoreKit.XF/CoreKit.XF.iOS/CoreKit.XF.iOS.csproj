@@ -65,6 +65,8 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <BundleResource Include="en.lproj\InfoPlist.strings" />
+    <BundleResource Include="vi.lproj\InfoPlist.strings" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -143,5 +145,17 @@
       <Project>{CAF2676A-4E98-437D-99E0-7CDB4C02CF8B}</Project>
       <Name>CoreKit.XF</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\header.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\launcher_foreground.png" />
   </ItemGroup>
 </Project>
