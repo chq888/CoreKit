@@ -4,8 +4,12 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:i18n="clr-namespace:CoreKit.XF.Helpers"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    ios:Page.UseSafeArea="true"
     mc:Ignorable="d">
+    <!--  ios:Page.UseSafeArea for notch handling  -->
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="LabelColor">#336699</Color>
@@ -38,6 +42,12 @@
                 HorizontalOptions="CenterAndExpand"
                 Style="{DynamicResource CustomLabelStyle}"
                 Text="DynamicResource CustomLabelStyle!"
+                VerticalOptions="Center" />
+            <Label
+                FontSize="Medium"
+                HorizontalOptions="CenterAndExpand"
+                Style="{DynamicResource CustomLabelStyle}"
+                Text="{i18n:Translation NameLabel}"
                 VerticalOptions="Center" />
             <Grid
                 BackgroundColor="Aqua"

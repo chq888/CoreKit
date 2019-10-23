@@ -29,6 +29,8 @@ namespace CoreKit.XF
             else
                 DependencyService.Register<AzureDataStore>();
 
+            //TranslationHelper.ChangeCulture("vi-VN");
+
             MainPage = new AppShell();
         }
 
