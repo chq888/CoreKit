@@ -7,6 +7,7 @@ using CoreKit.XF.Infrastructure;
 using CoreKit.XF.Models;
 using CoreKit.XF.Services;
 using Xamarin.Forms;
+using System.Threading;
 
 namespace CoreKit.XF.ViewModels
 {
@@ -15,6 +16,16 @@ namespace CoreKit.XF.ViewModels
 
         public IDataStore<Item> DataStore => new MockDataStore();
         //public IDataStore<Item> DataStore => new ItemDataStore();
+
+        private CancellationTokenSource _Cancellation;
+
+        private bool _isCanceled;
+
+        public bool IsCanceled
+        {
+            get => _isCanceled;
+            set => SetProperty(ref _isCanceled, value);
+        }
 
         private Item _CurrentItem;
         public Item CurrentItem
@@ -53,6 +64,23 @@ namespace CoreKit.XF.ViewModels
             CurrentItem = item;
 
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
+        }
+
+        private async void CancelAsync()
+        {
+            if (_Cancellation?.IsCancellationRequested ?? true)
+                return;
+            _Cancellation.Cancel();
+        }
+
+        private async void DoAsync()
+        {
+            _Cancellation = new CancellationTokenSource();
+            IsCanceled = true;
+
+            //handle here
+            await Task.Delay(1000, _Cancellation.Token);
+            IsCanceled = false;
         }
 
         async Task ExecuteLoadDataCommand()
