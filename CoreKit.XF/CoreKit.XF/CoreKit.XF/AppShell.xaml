@@ -71,6 +71,12 @@
         Icon="car.png"
         Route="Items" />
 
+    <ShellContent
+        Title="Setting"
+        ContentTemplate="{DataTemplate local:SettingPage}"
+        Icon="car.png"
+        Route="Setting" />
+
     <!--<TabBar>
         <Tab Title="Browse" Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
