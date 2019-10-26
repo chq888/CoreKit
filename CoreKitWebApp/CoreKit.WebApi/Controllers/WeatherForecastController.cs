@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CoreKit.WebApi.Configurations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace CoreKit.WebApi.Controllers
 {
@@ -17,10 +19,12 @@ namespace CoreKit.WebApi.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private IOptions<FeaturesConfiguration> _featuresConfiguration;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IOptions<FeaturesConfiguration> featuresConfiguration)
         {
             _logger = logger;
+            _featuresConfiguration = featuresConfiguration;
         }
 
         [HttpGet]

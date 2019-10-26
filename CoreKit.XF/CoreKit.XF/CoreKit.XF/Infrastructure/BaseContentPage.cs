@@ -33,6 +33,8 @@ namespace CoreKit.XF.Infrastructure
     {
 
         protected virtual T ViewModel => BindingContext as T;
+        //        protected T ViewModel { get; } = new T();
+
 
         protected override void OnAppearing()
         {
