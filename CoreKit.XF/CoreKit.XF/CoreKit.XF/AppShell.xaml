@@ -72,6 +72,12 @@
         Route="Items" />
 
     <ShellContent
+        Title="Register"
+        ContentTemplate="{DataTemplate local:RegisterPage}"
+        Icon="car.png"
+        Route="Register" />
+    
+    <ShellContent
         Title="Setting"
         ContentTemplate="{DataTemplate local:SettingPage}"
         Icon="car.png"

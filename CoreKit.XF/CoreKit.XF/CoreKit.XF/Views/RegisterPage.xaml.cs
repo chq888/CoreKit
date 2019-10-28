@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace CoreKit.XF.Resources
+namespace CoreKit.XF.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ColorDictionary : ResourceDictionary
+    public partial class RegisterPage : ContentPage
     {
-        public ColorDictionary()
+        public RegisterPage()
         {
             InitializeComponent();
         }

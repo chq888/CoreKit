@@ -6,6 +6,7 @@ using CoreKit.XF.Services;
 using CoreKit.XF.Views;
 using CoreKit.XF.Models;
 using Microsoft.EntityFrameworkCore;
+using CoreKit.XF.Styles;
 
 namespace CoreKit.XF
 {
@@ -17,6 +18,9 @@ namespace CoreKit.XF
         public static string AzureBackendUrl =
             DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5000" : "http://localhost:5000";
         public static bool UseMockDataStore = true;
+
+        const int smallWightResolution = 768;
+        const int smallHeightResolution = 1280;
 
         public App()
         {
@@ -30,6 +34,8 @@ namespace CoreKit.XF
                 DependencyService.Register<AzureDataStore>();
 
             //TranslationHelper.ChangeCulture("vi-VN");
+
+            LoadStyles();
 
             MainPage = new AppShell();
         }
@@ -47,6 +53,31 @@ namespace CoreKit.XF
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+
+        void LoadStyles()
+        {
+            if (IsASmallDevice())
+            {
+                appResourceDictionary.MergedDictionaries.Add(HdpiStyle.SharedInstance);
+            }
+            else
+            {
+                appResourceDictionary.MergedDictionaries.Add(XhdpiStyle.SharedInstance);
+            }
+        }
+
+        public static bool IsASmallDevice()
+        {
+            // Get Metrics
+            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+
+            // Width (in pixels)
+            var width = mainDisplayInfo.Width;
+
+            // Height (in pixels)
+            var height = mainDisplayInfo.Height;
+            return (width <= smallWightResolution && height <= smallHeightResolution);
         }
 
     }

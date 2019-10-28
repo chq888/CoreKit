@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CoreKit.XF.Views.RegisterPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                Padding="{StaticResource PagePadding}"
+                Spacing="{StaticResource PageSpacing}"
+                VerticalOptions="CenterAndExpand">
+
+                <Label Style="{StaticResource MainTitleStyle}" Text="Welcome to Xamarin.Forms!" />
+
+                <Entry Placeholder="Name" Style="{StaticResource MainEntryStyle}" />
+
+                <Entry Placeholder="Email" Style="{StaticResource MainEntryStyle}" />
+
+                <Entry Placeholder="Phone Number" Style="{StaticResource MainEntryStyle}" />
+
+                <Entry
+                    IsPassword="true"
+                    Placeholder="Confirm Password"
+                    Style="{StaticResource MainEntryStyle}" />
+
+                <Entry
+                    IsPassword="true"
+                    Placeholder="Password"
+                    Style="{StaticResource MainEntryStyle}" />
+
+                <Button Style="{StaticResource MainButtonStyle}" Text="Register" />
+
+                <Label
+                    Style="{StaticResource NormalTitleStyle}"
+                    Text="Reset"
+                    TextColor="{StaticResource Primary}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
